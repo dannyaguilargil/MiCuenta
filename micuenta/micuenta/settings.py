@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'micuenta',
     'gestion_supervisor',
+    'gestion_usuarios',
     
 ]
 
@@ -131,6 +132,7 @@ JAZZMIN_SETTINGS = {
     "icons": {
         "gestion_supervisor.supervisor": "fas fa-user-tie",  
         "micuenta.dependencia": "fas fa-building",
+        "gestion_usuarios.usuario": "fas fa-user-cog",
 
         # Default
         "auth": "fas fa-users-cog",
