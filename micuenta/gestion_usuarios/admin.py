@@ -13,24 +13,45 @@ class Cont(admin.ModelAdmin):
         'objeto',
         'valor',
         'fechacontrato',
+        'fechaterminacion',
         'get_duracion',
         'get_supervisor',
         'display_archivo',
     )
-    search_fields = ('numero', 'objeto', 'supervisor__usuario__first_name', 'supervisor__usuario__last_name')
+
+    search_fields = (
+        'numero',
+        'objeto',
+        'supervisor__usuario__first_name',
+        'supervisor__usuario__last_name'
+    )
+
+    # Opcional: Evita edición manual si la duración se calcula automáticamente
+    # readonly_fields = ('duracion_meses', 'duracion_dias')
 
     def get_duracion(self, obj):
-        return f"{obj.duracion_meses} meses y {obj.duracion_dias} días"
+        meses = obj.duracion_meses
+        dias = obj.duracion_dias
+
+        if meses == 0 and dias > 0:
+            return f"{dias} días"
+        elif meses > 0 and dias == 0:
+            return f"{meses} meses"
+        elif meses > 0 and dias > 0:
+            return f"{meses} meses y {dias} días"
+        else:
+            return "0 días"
     get_duracion.short_description = 'Duración'
 
     def get_supervisor(self, obj):
-        if obj.supervisor:
+        if obj.supervisor and obj.supervisor.usuario:
             return obj.supervisor.usuario.get_full_name()
         return "-"
     get_supervisor.short_description = 'Supervisor'
 
     def display_archivo(self, obj):
         if obj.archivo:
+            # Ajusta el path si estás sirviendo archivos en una ruta diferente
             file_url = obj.archivo.url.replace('/sistemas_cuentas/', '/')
             return format_html('<a href="{}" target="_blank" style="color: #E74C3C;">Ver PDF</a>', file_url)
         return '-'

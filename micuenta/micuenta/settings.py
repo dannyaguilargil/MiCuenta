@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'micuenta',
     'gestion_supervisor',
     'gestion_usuarios',
+    'gestion_ia',
     
 ]
 

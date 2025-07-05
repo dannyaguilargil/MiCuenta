@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from gestion_supervisor.models import supervisor
 from micuenta.models import dependencia
 from micuenta.choices import sexos, rol, tipodocumento
+from datetime import date
+from dateutil.relativedelta import relativedelta
 
 class usuario(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Usuario autenticado', blank=True, null=True )
@@ -33,16 +35,35 @@ class contrato(models.Model):
     numeroproceso = models.IntegerField(verbose_name='Número del proceso')
     objeto = models.CharField(max_length=300, verbose_name='Objeto del contrato')
     fechaperfeccionamiento = models.DateField(verbose_name='Fecha de perfeccionamiento')
-    valor = models.BigIntegerField(verbose_name='Valor del contrato')
+
+    valor = models.DecimalField(
+        verbose_name='Valor del contrato',
+        max_digits=15,
+        decimal_places=2
+    )
+
     fechacontrato = models.DateField(verbose_name='Fecha inicial del contrato')
     fechaterminacion = models.DateField(verbose_name='Fecha final del contrato')
 
-    duracion_meses = models.IntegerField(verbose_name='Duración (meses)', default=0)
-    duracion_dias = models.IntegerField(verbose_name='Duración (días)', default=0)
+    duracion_meses = models.IntegerField(verbose_name='Duración (meses)', default=0, null=True, blank=True)
+    duracion_dias = models.IntegerField(verbose_name='Duración (días)', null=True, blank=True)
 
     supervisor = models.ForeignKey('gestion_supervisor.supervisor', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Supervisor')
     archivo = models.FileField(upload_to='pdfs/', verbose_name='Archivo')
     usuario = models.ForeignKey('usuario', null=True, blank=True, on_delete=models.CASCADE)
 
+    def save(self, *args, **kwargs):
+        if self.fechacontrato and self.fechaterminacion:
+            # Solo calcular si no fue ingresado manualmente
+            if self.duracion_meses == 0 and self.duracion_dias == 0:
+                delta = relativedelta(self.fechaterminacion + relativedelta(days=1), self.fechacontrato)
+                meses = delta.years * 12 + delta.months
+                dias = delta.days
+
+                self.duracion_meses = meses
+                self.duracion_dias = dias
+
+        super().save(*args, **kwargs)
+
     def duracion_total_en_dias(self):
-        return self.duracion_meses * 30 + self.duracion_dias
+        return self.duracion_meses * 30 + (self.duracion_dias or 0)
