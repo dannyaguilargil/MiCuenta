@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  usuario, contrato
+from .models import  usuario, contrato, rp
 from django.utils.html import format_html
 
 class User(admin.ModelAdmin):
@@ -58,3 +58,24 @@ class Cont(admin.ModelAdmin):
     display_archivo.short_description = 'Archivo'
 
 admin.site.register(contrato, Cont)
+
+
+class Rps(admin.ModelAdmin):
+    list_display= ('numero', 'fecha',)
+    
+    def display_archivo(self, obj):
+        if obj.archivo:
+            file_url = obj.archivo.url
+            file_url = file_url.replace('/sistemas_cuentas/', '/')
+            return format_html('<a href="{}" target="_blank" style="color: #E74C3C;">Ver pdf</a>', file_url)
+        else:
+            return '-'
+    display_archivo.short_description = 'Archivo'
+    
+    list_display = ['numero', 'fecha', 'usuario_id', 'display_archivo']
+    search_fields = (
+        'numero',
+    )
+
+    
+admin.site.register(rp, Rps)

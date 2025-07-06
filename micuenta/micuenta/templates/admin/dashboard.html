@@ -1,0 +1,23 @@
+{% extends "admin/base_site.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+  <h1>Gráfica de ejemplo</h1>
+  <canvas id="myChart" width="400" height="200"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May'],
+            datasets: [{
+                label: 'Ventas',
+                data: [10, 20, 30, 25, 15],
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+            }]
+        },
+    });
+  </script>
+{% endblock %}

@@ -51,6 +51,8 @@ class contrato(models.Model):
     supervisor = models.ForeignKey('gestion_supervisor.supervisor', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Supervisor')
     archivo = models.FileField(upload_to='pdfs/', verbose_name='Archivo')
     usuario = models.ForeignKey('usuario', null=True, blank=True, on_delete=models.CASCADE)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_actualizacion = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if self.fechacontrato and self.fechaterminacion:
@@ -67,3 +69,28 @@ class contrato(models.Model):
 
     def duracion_total_en_dias(self):
         return self.duracion_meses * 30 + (self.duracion_dias or 0)
+    
+
+
+class rp(models.Model):
+    numero = models.BigIntegerField(primary_key=True, verbose_name='Numero del rp')
+    fecha = models.DateField(max_length=300, verbose_name='Fecha del rp')
+    archivo = models.FileField(upload_to='pdfs/', default='No cargado', verbose_name='archivo')
+    usuario=models.ForeignKey(usuario,null=True,blank=True,on_delete=models.CASCADE)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_actualizacion = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return 'REGISTRO PRESUPUESTAL: '+self.fecha
+    
+
+class actainicio(models.Model):
+    numero = models.IntegerField(primary_key=True, verbose_name='Numero del proceso')
+    fecha = models.CharField(max_length=300, verbose_name='Fecha de acta de inicio')
+    archivo = models.FileField(upload_to='pdfs/', default='NO CARGADO', verbose_name='archivo')#LO AGREGUE REVISAR
+    usuario=models.ForeignKey(usuario,null=True,blank=True,on_delete=models.CASCADE)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_actualizacion = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return 'ACTA DE INICIO: '+self.fecha

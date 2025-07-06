@@ -25,9 +25,17 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost']
 
 
-# Application definition
-
 INSTALLED_APPS = [
+     
+    'admin_tools_stats',      # django-admin-charts
+    'django_nvd3',            # dependencia para gráficos
+
+     # Herramientas de admin-tools (menu, theming, dashboard)
+    #'admin_tools',
+    #'admin_tools.theming',
+    #'admin_tools.menu',
+    #'admin_tools.dashboard',
+
     'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -57,9 +65,14 @@ ROOT_URLCONF = 'micuenta.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': False,
         'OPTIONS': {
+            'loaders': [
+                'admin_tools.template_loaders.Loader',           # para admin_tools
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ],
             'context_processors': [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -100,9 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = 'es-es' #estaba en en-us
+LANGUAGE_CODE = 'es' #estaba en en-us
 
-TIME_ZONE = 'America/Lima' ##'UTC'
+TIME_ZONE = 'America/Bogota' ##'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
