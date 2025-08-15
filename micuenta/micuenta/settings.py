@@ -22,13 +22,13 @@ SECRET_KEY = 'django-insecure-9e)!h0&q!7cfhcpn6m3&y@!2r8$b#u8zaf)%$uygw-)a)!*^fg
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost','192.168.2.185']
 
 
 INSTALLED_APPS = [
      
-    'admin_tools_stats',      # django-admin-charts
-    'django_nvd3',            # dependencia para gráficos
+    #'admin_tools_stats',      # django-admin-charts
+    #'django_nvd3',            # dependencia para gráficos
 
      # Herramientas de admin-tools (menu, theming, dashboard)
     #'admin_tools',
@@ -114,7 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 LANGUAGE_CODE = 'es' #estaba en en-us
-
 TIME_ZONE = 'America/Bogota' ##'UTC'
 USE_I18N = True
 USE_L10N = True
@@ -130,22 +129,55 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
-    #"theme": "superhero",  # Puedes probar otros temas como "flatly", "cyborg", "superhero"
-    "site_title": "Mi Panel Django",
+
+   "custom_css": "css/admin_override.css",
+    "site_title": "Mi Cuenta - SECOPS",
     "site_header": "Mi Panel de Admin",
-    "site_brand": "Mi Cuenta",
-    "welcome_sign": "Bienvenido al panel",
-    "copyright": "Mi Cuenta",
+    "site_brand": "SECOPS ",
+    "welcome_sign": " @d4n7.dev© SECOPS E.S.E IMSALUD V0.0",
+    "copyright": "/ @d4n7.dev SECOPS E.S.E IMSALUD V0.0",
     "show_ui_builder": False,
-    "show_jazzmin_version": False,
+    "show_jazzmin_version": True,
+   
+    "user_icon": "fas fa-user-circle", 
+    
+    # Personalización de colores y tema
+    "site_logo": None,
+    "site_logo_classes": "img-circle",
+    "site_icon": None,
+    
+    # Personalización del menú
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+    "order_with_respect_to": ["gestion_usuarios", "gestion_supervisor", "micuenta", "gestion_ia", "auth"],
 
 
     "icons": {
+        # Aplicaciones personalizadas
+        "gestion_supervisor": "fas fa-user-shield",
         "gestion_supervisor.supervisor": "fas fa-user-tie",  
+        
+        # Micuenta
+        "micuenta": "fas fa-cogs",
         "micuenta.dependencia": "fas fa-building",
+        "micuenta.radicado": "fas fa-file-alt",
+        "micuenta.cuentabancaria": "fas fa-university",
+        
+        # Gestion Usuarios
+        "gestion_usuarios": "fas fa-users",
         "gestion_usuarios.usuario": "fas fa-user-cog",
-
+        "gestion_usuarios.contrato": "fas fa-file-contract",
+        "gestion_usuarios.rp": "fas fa-file-invoice-dollar",
+        "gestion_usuarios.actainicio": "fas fa-file-signature",
+        "gestion_usuarios.planilla": "fas fa-clipboard-list",
+        "gestion_usuarios.documento": "fas fa-file-pdf",
+        
+        # Gestion IA
+        "gestion_ia": "fas fa-robot",
+        
         # Default
+        "admin": "fas fa-shield-alt",
         "auth": "fas fa-users-cog",
         "auth.User": "fas fa-user",
         "auth.Group": "fas fa-users",
@@ -157,13 +189,47 @@ JAZZMIN_SETTINGS = {
         "sites.Site": "fas fa-globe",
     
     },
+
+    
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": True,
+    "footer_small_text": True,
+    "body_small_text": False,
+    "brand_small_text": True,
+    "accent": "accent-success",
+    "navbar": "navbar-dark",
+    "no_navbar_border": True,
+    "navbar_fixed": True,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": True,
+    "sidebar": "sidebar-dark-success",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": True,
+    "sidebar_nav_compact_style": True,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "cosmo",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-success",
+        "secondary": "btn-outline-success",
+        "info": "btn-outline-info",
+        "warning": "btn-outline-warning",
+        "danger": "btn-outline-danger",
+        "success": "btn-outline-success"
+    },
+    "brand_colour": False,
 }
 
 ###CONFIGURACION DE CORREO
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = config('EMAIL_HOST')
+#EMAIL_PORT = config('EMAIL_PORT', cast=int)
+#EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+#EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+#EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+#DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')

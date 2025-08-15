@@ -1,3 +1,75 @@
-footer .jazzmin-version {
-    display: none !important;
+/* Importa las fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+/* Fuente general del sitio: Lato */
+body, html {
+    font-family: 'Lato', sans-serif !important;
+}
+
+/* Títulos, menú, navbar, sidebar: Kodchasan */
+h1, h2, h3, h4, h5, h6,
+.sidebar .nav-sidebar > li > a,
+.card-title,
+.brand-link .brand-text,
+.navbar .nav-link,
+.sidebar-heading {
+    font-family: 'Kodchasan', sans-serif !important;
+}
+
+
+/* Footer personalizado */
+footer.main-footer div.float-right.d-none.d-sm-inline::before {
+    content: "SECOPS - MI CUENTA .";
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+footer.main-footer div.float-right.d-none.d-sm-inline {
+    color: transparent !important;
+}
+
+/* Fondo completo del sidebar */
+.main-sidebar {
+    background-color: #0E9754 !important;
+}
+
+/* Parte superior del sidebar (brand) */
+.brand-link {
+    background-color: #0E9754 !important;
+    color: #ffffff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Texto del brand-link */
+.brand-link .brand-text {
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+/* Fondo de la navbar superior */
+.main-header {
+    background-color: #0E9754 !important;
+}
+
+/* Color de los íconos y texto en la navbar */
+.main-header .nav-link,
+.main-header .navbar-nav .nav-item .nav-link,
+.main-header .navbar-nav .nav-link i {
+    color: #ffffff !important;
+}
+
+/* Enlaces del menú lateral */
+.nav-sidebar .nav-link {
+    color: #ffffff !important;
+}
+
+/* Enlace activo */
+.nav-sidebar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+/* Íconos del menú */
+.nav-icon {
+    color: #ffffff !important;
 }

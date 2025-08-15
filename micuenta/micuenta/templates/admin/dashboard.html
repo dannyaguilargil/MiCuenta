@@ -1,9 +1,18 @@
 {% extends "admin/base_site.html" %}
 {% block title %}Dashboard{% endblock %}
 
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="/static/css/admin-custom.css">
+{% endblock %}
+
 {% block content %}
-  <h1>Gráfica de ejemplo</h1>
-  <canvas id="myChart" width="400" height="200"></canvas>
+  <div class="fadeIn">
+    <h1>Gráfica de ejemplo</h1>
+    <div class="card" style="padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px var(--shadow-color);">
+      <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
@@ -15,7 +24,7 @@
             datasets: [{
                 label: 'Ventas',
                 data: [10, 20, 30, 25, 15],
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                backgroundColor: 'rgba(14, 151, 84, 0.5)', /* Verde Pantone 375c al 90% */
             }]
         },
     });

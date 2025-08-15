@@ -1,0 +1,120 @@
+/* Estilos personalizados para el panel de administración */
+
+:root {
+    --primary-color: #0E9754;    /* Verde Pantone 375c al 90% */
+    --primary-dark: #0C7A45;     /* Verde oscuro para hover */
+    --primary-light: rgba(14, 151, 84, 0.1); /* Verde claro para fondos */
+    --text-color: #333;          /* Color de texto principal */
+    --link-color: #0E9754;       /* Color de enlaces */
+    --link-hover: #0C7A45;       /* Color de enlaces al pasar el mouse */
+    --shadow-color: rgba(14, 151, 84, 0.2); /* Sombra verde */
+}
+
+/* Cabecera del panel de administración */
+#header {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Enlaces en la cabecera */
+#header a:link, #header a:visited {
+    color: white;
+}
+
+#header a:hover {
+    color: #f8f9fa;
+}
+
+/* Barra lateral */
+.module h2, .module caption, .inline-group h2 {
+    background: var(--primary-color);
+}
+
+div.breadcrumbs {
+    background: var(--primary-dark);
+}
+
+/* Botones de acción */
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    background: var(--primary-color);
+    font-weight: bold;
+}
+
+.button.default:hover, input[type=submit].default:hover, .submit-row input.default:hover {
+    background: var(--primary-dark);
+}
+
+/* Enlaces */
+a:link, a:visited {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+/* Tablas */
+table thead th.sorted .sortoptions a.sortremove:hover, table thead th.sorted .sortoptions a.toggle:hover {
+    color: var(--primary-color);
+}
+
+table thead th {
+    background: var(--primary-light);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.results table tbody tr:hover {
+    background-color: var(--primary-light);
+}
+
+/* Mensajes */
+.messagelist li.success {
+    background: var(--primary-light);
+    border-color: var(--primary-color);
+}
+
+/* Formularios */
+form .form-row input:focus, form .form-row textarea:focus, form .form-row select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--shadow-color);
+}
+
+.select2-container--admin-autocomplete.select2-container--focus .select2-selection {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--shadow-color);
+}
+
+/* Animaciones */
+.fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gráficos y elementos visuales */
+.chart-bar-background {
+    background-color: rgba(14, 151, 84, 0.5) !important;
+}

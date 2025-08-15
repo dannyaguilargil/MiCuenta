@@ -20,8 +20,8 @@ from . import views
 
 urlpatterns = [
     #path('admin_tools/', include('admin_tools.urls')),  # 👈 ESTA LÍNEA ES CLAVE
-    path('admin_tools_stats/', include('admin_tools_stats.urls')), 
+    #path('admin_tools_stats/', include('admin_tools_stats.urls')), 
     path('admin/', admin.site.urls),
-    path('', include('gestion_ia.urls')),
-    path('admin/dashboard/', views.dashboard, name='admin-dashboard'),
+    path('', include('gestion_usuarios.urls')),
+
 ]

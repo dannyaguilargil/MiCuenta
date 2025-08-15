@@ -1,6 +1,9 @@
 from django.contrib import admin
-from .models import  usuario, contrato, rp
+from .models import  usuario, contrato, rp, actainicio, planilla, documento
+from django.db.models import Sum
 from django.utils.html import format_html
+
+
 
 class User(admin.ModelAdmin):
     list_display= ('nombre', 'primerapellido', 'segundoapellido', 'cedula', 'rol')
@@ -77,5 +80,37 @@ class Rps(admin.ModelAdmin):
         'numero',
     )
 
-    
 admin.site.register(rp, Rps)
+
+
+class ActaInicio(admin.ModelAdmin):
+    list_display= ('numero', 'fecha',)
+    
+    def display_archivo(self, obj):
+        if obj.archivo:
+            file_url = obj.archivo.url
+            file_url = file_url.replace('/sistemas_cuentas/', '/')
+            return format_html('<a href="{}" target="_blank" style="color: #E74C3C;">Ver pdf</a>', file_url)
+        else:
+            return '-'
+    display_archivo.short_description = 'Archivo'
+    
+    list_display = ['fecha', 'usuario_id', 'display_archivo']
+    search_fields = (
+        'fecha',
+    )
+
+admin.site.register(actainicio, ActaInicio)
+
+
+class Planilla(admin.ModelAdmin):
+    list_display= ('numero', 'fecha_creacion')
+admin.site.register(planilla, Planilla)
+
+class Documento(admin.ModelAdmin):
+    list_display = ('nombre', 'usuario', 'fecha_creacion', 'fecha_actualizacion')
+    search_fields = ('nombre', 'usuario__username')  # Ajusta si 'usuario' no usa username
+    list_filter = ('fecha_creacion', 'fecha_actualizacion', 'usuario')
+    ordering = ('-fecha_creacion',)
+    readonly_fields = ('fecha_creacion', 'fecha_actualizacion')
+admin.site.register(documento, Documento)
