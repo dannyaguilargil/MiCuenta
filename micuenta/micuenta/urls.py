@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+
 urlpatterns = [
-    #path('admin_tools/', include('admin_tools.urls')),  # 👈 ESTA LÍNEA ES CLAVE
-    #path('admin_tools_stats/', include('admin_tools_stats.urls')), 
-    path('admin/', admin.site.urls),
+    #path('', include(router.urls)),
+   
     path('', include('gestion_usuarios.urls')),
+     path('admin/', admin.site.urls),
 
 ]

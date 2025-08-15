@@ -7,6 +7,7 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 from micuenta.choices import mes
 
+
 class usuario(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Usuario autenticado', blank=True, null=True )
     nombre = models.CharField(max_length=40, verbose_name='Primer nombre')
@@ -27,6 +28,7 @@ class usuario(models.Model):
     rol = models.CharField(max_length=40, verbose_name='Rol',choices=rol, default='identidades')
     fechafinalcontrato = models.DateField(verbose_name='Fecha final del contrato', null=True,blank=True)
     imagen = models.ImageField(upload_to='imgs/',default='imgs/sinfoto.jpeg')
+    firma = models.ImageField(upload_to='imgs/firmas',default='imgs/sinfoto.jpeg')
   
     def __str__(self):
         return self.nombre + ' ' + self.primerapellido

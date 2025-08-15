@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'gestion_supervisor',
     'gestion_usuarios',
     'gestion_ia',
-    
+    'gestion_envios',
+    'rest_framework', # apis
+    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
@@ -127,6 +130,14 @@ STATIC_URL = 'static/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        # o TokenAuthentication si usas token
+    ],
+}
 
 JAZZMIN_SETTINGS = {
 

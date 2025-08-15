@@ -108,9 +108,36 @@ class Planilla(admin.ModelAdmin):
 admin.site.register(planilla, Planilla)
 
 class Documento(admin.ModelAdmin):
-    list_display = ('nombre', 'usuario', 'fecha_creacion', 'fecha_actualizacion')
-    search_fields = ('nombre', 'usuario__username')  # Ajusta si 'usuario' no usa username
+    list_display = ('nombre', 'get_usuario', 'display_archivo', 'fecha_creacion', 'fecha_actualizacion')
+    search_fields = ('nombre', 'usuario__nombre', 'usuario__primerapellido', 'observaciones')
     list_filter = ('fecha_creacion', 'fecha_actualizacion', 'usuario')
     ordering = ('-fecha_creacion',)
     readonly_fields = ('fecha_creacion', 'fecha_actualizacion')
+    
+    def get_usuario(self, obj):
+        if obj.usuario:
+            return f"{obj.usuario.nombre} {obj.usuario.primerapellido}"
+        return "-"
+    get_usuario.short_description = 'Usuario'
+    
+    def display_archivo(self, obj):
+        if obj.archivo:
+            file_url = obj.archivo.url.replace('/sistemas_cuentas/', '/')
+            return format_html('<a href="{}" target="_blank" style="color: #E74C3C;">Ver Archivo</a>', file_url)
+        return '-'
+    display_archivo.short_description = 'Archivo'
+    
+    fieldsets = (
+        ('Información del Documento', {
+            'fields': ('nombre', 'archivo', 'observaciones')
+        }),
+        ('Asociación', {
+            'fields': ('usuario',)
+        }),
+        ('Fechas', {
+            'fields': ('fecha_creacion', 'fecha_actualizacion'),
+            'classes': ('collapse',)
+        }),
+    )
+    
 admin.site.register(documento, Documento)
