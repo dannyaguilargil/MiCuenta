@@ -1,0 +1,164 @@
+/* Personalización de Bootstrap con tema SECOPS */
+
+/* Botones primarios */
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--text-white) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  color: var(--text-white) !important;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  box-shadow: 0 0 0 0.2rem var(--primary-transparent) !important;
+}
+
+.btn-primary:active,
+.btn-primary.active {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+}
+
+/* Botones outline */
+.btn-outline-primary {
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--text-white) !important;
+}
+
+/* Enlaces */
+a {
+  color: var(--primary-color) !important;
+}
+
+a:hover {
+  color: var(--primary-dark) !important;
+}
+
+/* Controles de formulario */
+.form-control:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.2rem var(--primary-transparent) !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* Paginación */
+.page-link {
+  color: var(--primary-color) !important;
+}
+
+.page-link:hover {
+  color: var(--primary-dark) !important;
+  background-color: var(--primary-transparent) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.page-item.active .page-link {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* Tablas */
+.table-primary {
+  background-color: var(--primary-transparent) !important;
+}
+
+.table-hover .table-primary:hover {
+  background-color: var(--primary-hover) !important;
+}
+
+/* Tarjetas */
+.card-header {
+  background-color: var(--primary-color) !important;
+  color: var(--text-white) !important;
+}
+
+/* Badges */
+.badge-primary {
+  background-color: var(--primary-color) !important;
+}
+
+/* Barras de progreso */
+.progress-bar {
+  background-color: var(--primary-color) !important;
+}
+
+/* Alertas */
+.alert-primary {
+  color: var(--primary-dark) !important;
+  background-color: var(--primary-transparent) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* Navbar */
+.navbar-brand {
+  color: var(--text-white) !important;
+}
+
+.navbar-nav .nav-link {
+  color: var(--text-white) !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary-light) !important;
+}
+
+/* Dropdowns */
+.dropdown-item:active {
+  background-color: var(--primary-color) !important;
+}
+
+.dropdown-item:hover {
+  background-color: var(--primary-transparent) !important;
+}
+
+/* Spinners */
+.spinner-border {
+  color: var(--primary-color) !important;
+}
+
+.spinner-grow {
+  color: var(--primary-color) !important;
+}
+
+/* Modales */
+.modal-header {
+  background-color: var(--primary-color) !important;
+  color: var(--text-white) !important;
+}
+
+.modal-footer .btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* Tabs */
+.nav-tabs .nav-link.active {
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) var(--primary-color) var(--bg-light) !important;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: var(--primary-transparent) var(--primary-transparent) var(--primary-color) !important;
+}
+
+/* Pills */
+.nav-pills .nav-link.active {
+  background-color: var(--primary-color) !important;
+}

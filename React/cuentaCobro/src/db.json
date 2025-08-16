@@ -1,0 +1,66 @@
+{
+  "radicados": [
+    {
+      "id": 92,
+      "numeroradicado": "2024000010000521",
+      "fecha_radicacion": "2025-06-05T09:09:42.649966-05:00",
+      "activo": true,
+      "tipo_solicitud": "Derecho de petición",
+      "dependencia": 1,
+      "asunto": "Derecho de petición - Solicitud de información sobre estado de pagos",
+      "descripcion": "Solicitud de información detallada sobre el estado actual de los pagos pendientes del contrato CT-2024-001, incluyendo fechas de radicación y procesamiento de cuentas de cobro.",
+      "seguimiento": "Funcionario Asignado:María González /c Observaciones: /c Solicitud recibida y en proceso de revisión por parte del área competente.",
+      "usuario": 1
+    }
+  ],
+  "usuario":
+  [
+   {
+    "id": 1,
+    "nombre": "juan",
+    "segundo_nombre": "carlos",
+    "primer_apellido": "perez",
+    "segundo_apellido": "lopez",
+    "email": "juan.perez@example.com",
+    "fecha_expedicion": "2020-01-01",
+    "lugarexp": "Bogotá",
+    "fecha_nacimiento": "1990-01-01",
+    "telefono": "123456789",
+    "direccion": "Calle 123 #45-67",
+    "barrio": "Centro"
+  }
+  ]
+  ,
+  "contratosvigentes": [
+    {
+      "id": 1,
+      "rp": "RP-2024-001",
+      "numero_contrato": "CT-2024-001",
+      "fecha_inicio": "2024-01-01",
+      "fecha_fin": "2024-12-31",
+      "valor": 1000000,
+      "estado": "Activo",
+      "documentosContrato":[]
+    }
+  ],
+    "cuentacobro": [
+    {
+      "id": 1,
+      "numero_pago":1,
+      "id_radicado":1,
+      "id_contrato":1,
+      "valor":"5.000.000",
+      "observaciones":"Pendiente",
+      "documentosCuenta":[]
+    }
+  ]
+  ,
+    "dependencia": [
+    {
+      "id": 1,
+      "nombre": "Sistemas y Procesos"
+    }
+  ]
+  
+  
+}

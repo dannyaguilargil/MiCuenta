@@ -1,0 +1,4 @@
+├── components/   l          # Componentes reutilizables (UI pura)
+│   ├── common/              # Componentes comunes (botones, inputs, etc.)
+│   ├── layout/              # Componentes de diseño (header, footer, sidebar)
+│   └── ui/                  # Componentes de interfaz de usuario (modales, cards, etc.)

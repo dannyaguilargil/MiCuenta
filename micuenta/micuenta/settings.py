@@ -22,7 +22,7 @@ SECRET_KEY = 'django-insecure-9e)!h0&q!7cfhcpn6m3&y@!2r8$b#u8zaf)%$uygw-)a)!*^fg
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','192.168.2.185']
+ALLOWED_HOSTS = ['localhost','192.168.2.185','127.0.0.1']
 
 
 INSTALLED_APPS = [
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -244,3 +245,23 @@ JAZZMIN_UI_TWEAKS = {
 #EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 #EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 #DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+
+# CORS Configuration
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8002",
+    "http://127.0.0.1:8002",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]

@@ -1,0 +1,143 @@
+/* Importar fuentes de Google */
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+/* Importar variables de tema */
+@import './styles/variables.css';
+@import './styles/bootstrap-theme.css';
+
+*{
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+}
+
+body{
+  position: relative;
+  font-family: var(--font-primary);
+}
+
+
+li:hover{
+  cursor: pointer;
+}
+
+li a:hover{
+  cursor: pointer;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+
+.dt-column-title{
+  margin-right: 6px;
+} 
+
+
+/* Flechas base (sin ordenar) */
+th[aria-sort=" "] .dt-column-order::after {
+  content: "\2191\2193";
+  color: #adb5bd; /* Gris */
+  margin-left: 5px;
+  font-size: 0.8em;
+}
+
+/* Flecha activa - Ascendente */
+th[aria-sort="ascending"] .dt-column-order::after {
+  content: "\2191";
+  color: var(--primary-color); /* Verde SECOPS */
+  font-weight: bold;
+}
+
+/* Flecha activa - Descendente */
+th[aria-sort="descending"] .dt-column-order::after {
+  content: "\2193";
+  color: var(--primary-color); /* Verde SECOPS */
+  font-weight: bold;
+}
+
+/* Hover para columnas ordenables */
+th:not([aria-sort]) .dt-column-order::after {
+  opacity: 0.8;
+  content: "\2191\2193";
+  color: #adb5bd;
+}
+
+.buttons-excel{
+  background-image: url("./assets/images/logoexcel.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 40px;
+  content-visibility:hidden;
+   background-color: rgb(3, 172, 25) !important;
+}
+
+.buttons-pdf{
+  background-image: url("./assets/images/pdf.png");
+  background-size: contain;
+  width: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 40px;
+  content-visibility:hidden;
+  background-color: rgb(139, 46, 2) !important;
+}
+
+.buttons-pdf:hover, .buttons-excel:hover{
+  background-color: #adb5bd !important;
+}
+
+.dt-buttons::before{
+  content: "Exportar:";
+  align-self: end;
+  margin-right: 10px;
+  justify-self: center;
+}
+
+
+.dt-buttons.btn-group{
+  display: flex;
+  justify-self: end;
+  margin-bottom: 20px;
+  text-align: center;
+} 
+
+.table-responsive{
+  margin-bottom: 20px;
+}
+
+
+footer{
+  margin: 0 40px 0 40px;
+}
+
+ul.pagination{
+  justify-content: end;
+}
+
+/* #tablaEntregasInforme td:nth-child(5) {
+  width: auto !important;
+  height: auto;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+
+}
+
+#tablaEntregasInforme th {
+  white-space: nowrap;
+   margin: 0;
+  padding: 0;
+} */
+
+
+/* .form-check.form-switch{
+  margin: 0;
+  padding: 20px;
+} */

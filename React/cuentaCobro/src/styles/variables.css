@@ -1,0 +1,49 @@
+
+
+/* Variables de colores basadas en el panel de administración Django */
+:root {
+  /* Colores principales del tema SECOPS */
+  --primary-color: #0E9754;
+  --primary-dark: #0c7a45;
+  --primary-light: #1ba866;
+  --primary-hover: rgba(14, 151, 84, 0.8);
+  --primary-transparent: rgba(14, 151, 84, 0.2);
+  
+  /* Colores de texto */
+  --text-white: #ffffff;
+  --text-dark: #333333;
+  --text-muted: #6c757d;
+  
+  /* Colores de fondo */
+  --bg-sidebar: #0E9754;
+  --bg-navbar: #0E9754;
+  --bg-light: #f8f9fa;
+  --bg-dark: #343a40;
+  
+  /* Colores de estado */
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  
+  /* Sombras y bordes */
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --border-color: rgba(255, 255, 255, 0.1);
+  
+  /* Fuentes */
+  --font-primary: 'Lato', sans-serif;
+  --font-headings: 'Kodchasan', sans-serif;
+}
+
+/* Aplicar fuentes globalmente */
+body, html {
+  font-family: var(--font-primary) !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar .nav-link,
+.sidebar .nav-link,
+.card-title,
+.brand-text {
+  font-family: var(--font-headings) !important;
+}

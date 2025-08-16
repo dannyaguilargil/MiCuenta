@@ -1,0 +1,149 @@
+.sidebar {
+    position: absolute;
+    z-index: 10000;
+    left: -230px;
+    width: 230px;
+    height: auto;
+    min-height: calc(100vh - 56px);
+    list-style: none;
+    text-decoration: none;
+    background-color: var(--bg-sidebar);
+    transition: left 0.2s ease-in-out;
+    color: var(--text-white);
+    font-family: var(--font-primary);
+}
+
+
+.sidebar.open {
+    height: auto;
+    display: flex;
+    width: 225px;
+    position: relative;
+    z-index: 1000;
+    left: 0;
+    /* box-shadow: 3px 23px 20px 10px rgba(0, 0, 0, 0.3); */
+}
+
+.open-div {
+    display: flex;
+}
+
+
+
+.esterno{
+  width: calc(100% - 225px) !important;
+   
+}
+
+.main-content{
+    padding: 20px 20px !important;
+}
+
+.side-group {
+    padding: 10px;
+    margin-top: 4px;
+    align-items: center;
+}
+
+
+.sidebar img {
+    width: 20px;
+}
+
+button.side-li{
+    margin-top: 20px;
+}
+
+.side-li {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 6px;
+    width: 100%;
+}
+
+.cl-group {
+    padding-left: 20px;
+}
+
+.cl-group .nav-link {
+    margin-bottom: 5px;
+}
+
+.cl-group a {
+    width: 100%;
+}
+
+.side-link {
+    list-style: none;
+    text-decoration: none;
+    color: var(--text-white);
+}
+
+.side-link:hover {
+    color: var(--primary-light);
+    background-color: var(--primary-transparent);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link {
+    color: var(--text-white) !important;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--primary-transparent) !important;
+    color: var(--text-white) !important;
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--primary-dark) !important;
+    color: var(--text-white) !important;
+}
+
+.sidebar .side-group {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar .side-group:last-child {
+    border-bottom: none;
+}
+
+nav {
+    z-index: 100;
+}
+
+.creditos {
+    padding: 20px;
+    position: absolute;
+    bottom: 10px;
+    color: var(--text-white);
+    text-align: center;
+    font-size: 14px;
+    font-family: var(--font-primary);
+}
+
+
+@media screen and (max-width:1133px) {
+    .sidebar.open {
+        z-index: 100000;
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 240px;
+        left: 0;
+    }
+
+    .esterno{
+        width: 100% !important;
+    }
+
+
+    
+    .open-div{
+        display: block;
+    }
+}
+

@@ -14,6 +14,7 @@ router.register(r'api/rp', views.rpView, 'rps')
 router.register(r'api/actainicio', views.actainicioView, 'actainicio')
 router.register(r'api/planilla', views.planillaView, 'planilla')
 router.register(r'api/documento', views.documentoView, 'documento')
+router.register(r'api/radicados', views.radicadoView, 'radicados')
 
 
 urlpatterns = [

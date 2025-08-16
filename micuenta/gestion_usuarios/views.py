@@ -7,8 +7,9 @@ from rest_framework import status
 from django.utils.decorators import method_decorator
 from django.urls import reverse
 from rest_framework import viewsets
-from .serializer import usuarioSerializer, contratoSerializer, rpSerializer, actainicioSerializer, planillaSerializer, documentoSerializer
+from .serializer import usuarioSerializer, contratoSerializer, rpSerializer, actainicioSerializer, planillaSerializer, documentoSerializer, radicadoSerializer
 from gestion_usuarios.models import usuario, contrato, rp, actainicio, planilla, documento
+from micuenta.models import radicado
 
 from django.http import JsonResponse
 
@@ -85,3 +86,9 @@ class planillaView(viewsets.ModelViewSet):
 class documentoView(viewsets.ModelViewSet):
     serializer_class = documentoSerializer
     queryset = documento.objects.all() ##pilas falta autenticacion
+
+
+class radicadoView(viewsets.ModelViewSet):
+    serializer_class = radicadoSerializer
+    queryset = radicado.objects.all() ##pilas falta autenticacion
+ 

@@ -1,0 +1,50 @@
+/* 
+.dt-length label{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btn-ver:hover{
+    background-color: #1d985b5c;
+  }
+  
+  .dt-orderable-asc{
+   text-align:center;
+  }
+  
+  .table td{
+    text-align: center;
+  }
+
+
+
+
+.entregas-header {
+    text-align: center;
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Eliminar bordes internos para el efecto de agrupación */
+/* table.dataTable thead th.entregas-header {
+    border-bottom: none;
+}
+
+table.dataTable thead th[class^="entregas-header-"] {
+    border-top: none;
+} */
+   */
+
+
+  :root {
+  --dt-row-selected: 13, 110, 253;
+  --dt-row-selected-text: 255, 255, 255;
+  --dt-row-selected-link: 9, 10, 11;
+  --dt-row-stripe: 0, 0, 0;
+  --dt-row-hover: 0, 0, 0;
+  --dt-column-ordering: 0, 0, 0;
+  --dt-header-align-items: center;
+  --dt-html-background: white;
+}
