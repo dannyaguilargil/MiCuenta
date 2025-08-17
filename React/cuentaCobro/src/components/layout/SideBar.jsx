@@ -67,7 +67,7 @@ function SideBar({ isOpen }) {
               <FaFileAlt style={{ marginRight: '8px', fontSize: '14px' }} />
               Radicados
             </Link>
-            <Link className='nav-link' style={{ color: "var(--text-white)" }} to="/contratista/contratos">
+            <Link className='nav-link' style={{ color: "var(--text-white)" }} to="/contratista/pasar-cuenta">
               <FaMoneyBillWave style={{ marginRight: '8px', fontSize: '14px' }} />
               Contratos
             </Link>

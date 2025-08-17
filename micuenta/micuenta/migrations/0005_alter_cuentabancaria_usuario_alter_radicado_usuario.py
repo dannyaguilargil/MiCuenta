@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('gestion_usuarios', '0010_planilla_ibc_alter_planilla_periodo'),
+        ('gestion_usuarios', '0003_rp_usuario_firma_documento_planilla_delete_contrato'),
         ('micuenta', '0004_cuentabancaria'),
     ]
 

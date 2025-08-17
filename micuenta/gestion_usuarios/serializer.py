@@ -1,23 +1,7 @@
 from rest_framework import serializers
-from .models import usuario, contrato, rp, actainicio, planilla, documento
+from .models import usuario, planilla, documento, rp, contrato
 from micuenta.models import radicado
 
-
-class contratoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = contrato
-        fields = '__all__'
-
-
-class rpSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = rp
-        fields = '__all__'
-
-class actainicioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = actainicio
-        fields = '__all__'
 
 class planillaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -31,14 +15,25 @@ class documentoSerializer(serializers.ModelSerializer):
 
 class usuarioSerializer(serializers.ModelSerializer):
     username = serializers.SerializerMethodField()
+    supervisor_nombre = serializers.SerializerMethodField()
+    dependencia_nombre = serializers.SerializerMethodField()
 
     class Meta:
         model = usuario
         fields = ['usuario', 'cedula', 'nombre', 'segundonombre', 'primerapellido', 
-                  'segundoapellido', 'email', 'username','cargo','fechafinalcontrato']
+                  'segundoapellido', 'email', 'username', 'cargo', 'fechafinalcontrato',
+                  'supervisor', 'supervisor_nombre', 'tipodocumento', 'lugarexpedicion',
+                  'dependencia', 'dependencia_nombre', 'sexo', 'telefono', 'celular',
+                  'direccion', 'rol', 'imagen', 'firma']
 
     def get_username(self, obj):
         return obj.usuario.username if obj.usuario else None
+        
+    def get_supervisor_nombre(self, obj):
+        return str(obj.supervisor) if obj.supervisor else None
+        
+    def get_dependencia_nombre(self, obj):
+        return str(obj.dependencia) if obj.dependencia else None
 
 
 class radicadoSerializer(serializers.ModelSerializer):
@@ -75,5 +70,31 @@ class radicadoSerializer(serializers.ModelSerializer):
             except AttributeError:
                 return 'Error al obtener datos del usuario'
         return 'Sin usuario'
+
+
+class rpSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = rp
+        fields = '__all__'
+
+
+class contratoSerializer(serializers.ModelSerializer):
+    supervisor_nombre = serializers.SerializerMethodField()
+    rp_numero = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = contrato
+        fields = ['id', 'numero_pagos', 'supervisor', 'supervisor_nombre', 'rp', 'rp_numero', 
+                  'numero_proceso', 'archivo', 'fecha_creacion', 'fecha_actualizacion']
+    
+    def get_supervisor_nombre(self, obj):
+        if obj.supervisor and obj.supervisor.usuario:
+            return obj.supervisor.usuario.get_full_name() or f"Usuario {obj.supervisor.usuario.username}"
+        return None
+    
+    def get_rp_numero(self, obj):
+        if obj.rp:
+            return obj.rp.numero_rp
+        return None
 
 

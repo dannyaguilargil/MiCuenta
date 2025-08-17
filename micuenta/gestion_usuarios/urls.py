@@ -9,9 +9,9 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'api/usuarios', views.usuarioView, 'usuarios')
-router.register(r'api/contratos', views.contratoView, 'contratos')
+router.register(r'api/contrato', views.contratoView, 'contratos')
 router.register(r'api/rp', views.rpView, 'rps')
-router.register(r'api/actainicio', views.actainicioView, 'actainicio')
+#router.register(r'api/actainicio', views.actainicioView, 'actainicio')
 router.register(r'api/planilla', views.planillaView, 'planilla')
 router.register(r'api/documento', views.documentoView, 'documento')
 router.register(r'api/radicados', views.radicadoView, 'radicados')

@@ -7,8 +7,8 @@ from rest_framework import status
 from django.utils.decorators import method_decorator
 from django.urls import reverse
 from rest_framework import viewsets
-from .serializer import usuarioSerializer, contratoSerializer, rpSerializer, actainicioSerializer, planillaSerializer, documentoSerializer, radicadoSerializer
-from gestion_usuarios.models import usuario, contrato, rp, actainicio, planilla, documento
+from .serializer import usuarioSerializer, planillaSerializer, documentoSerializer, radicadoSerializer, rpSerializer, contratoSerializer
+from gestion_usuarios.models import usuario, planilla, documento, rp, contrato
 from micuenta.models import radicado
 
 from django.http import JsonResponse
@@ -62,22 +62,9 @@ def usuario_actual(request):
 
 class usuarioView(viewsets.ModelViewSet):
     serializer_class = usuarioSerializer
-    queryset = usuario.objects.all() ##pilas falta autenticacion
+    queryset = usuario.objects.all()
     #permission_classes = [IsAuthenticated] 
 
-class contratoView(viewsets.ModelViewSet):
-    serializer_class = contratoSerializer
-    queryset = contrato.objects.all() ##pilas falta autenticacion
-    #permission_classes = [IsAuthenticated] 
-
-class rpView(viewsets.ModelViewSet):
-    serializer_class = rpSerializer
-    queryset = rp.objects.all() ##pilas falta autenticacion
-    #permission_classes = [IsAuthenticated] 
-
-class actainicioView(viewsets.ModelViewSet):
-    serializer_class = actainicioSerializer
-    queryset = actainicio.objects.all() ##pilas falta autenticacion
 
 class planillaView(viewsets.ModelViewSet):
     serializer_class = planillaSerializer
@@ -91,4 +78,14 @@ class documentoView(viewsets.ModelViewSet):
 class radicadoView(viewsets.ModelViewSet):
     serializer_class = radicadoSerializer
     queryset = radicado.objects.all() ##pilas falta autenticacion
+
+
+class rpView(viewsets.ModelViewSet):
+    serializer_class = rpSerializer
+    queryset = rp.objects.all() ##pilas falta autenticacion
+
+
+class contratoView(viewsets.ModelViewSet):
+    serializer_class = contratoSerializer
+    queryset = contrato.objects.all().select_related('supervisor__usuario', 'rp') ##pilas falta autenticacion
  

@@ -5,7 +5,7 @@ export const BASEURL = {routeUrl};
 
 export const ENDPOINTS = {
      //info Usuarios
-    USUARIOSSARA : `usuarios/`,
+    USUARIOSSARA : `api/usuarios/`,
 
     AUTHUSER: `/api/auths`,
     
@@ -36,4 +36,8 @@ export const ENDPOINTS = {
 
     //Modulo Radicados
     RADICADOS: "/api/radicados/",
+
+    //Modulo Contratos
+    CONTRATOS: "/api/contrato/",
+    RPS: "/api/rp/",
 }

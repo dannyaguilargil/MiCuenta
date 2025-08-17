@@ -22,6 +22,7 @@ import Perfil from "./components/contratista/Perfil.jsx";
 import Documentos from "./components/contratista/Documentos.jsx";
 import CuentasCobro from "./components/contratista/CuentasCobro.jsx";
 
+
 import { ToastContainer} from 'react-toastify';
 
 const { LogEntryContext } = contextos;
@@ -117,6 +118,7 @@ function App() {
                       <Route path="perfil" element={<Perfil />} />
                       <Route path="documentos" element={<Documentos />} />
                       <Route path="cuentas-cobro" element={<CuentasCobro />} />
+    
                     </Route>
                         
                   </Routes>  
